@@ -53,11 +53,13 @@ const Model: LoginModelType = {
               redirect = redirect.substr(redirect.indexOf('#') + 1);
             }
           } else {
-            window.location.href = '/';
+            // 当跳转网站来源不是本站时, 默认跳转到 /welcome
+            window.location.href = '/welcome';
             return;
           }
         }
-        yield put(routerRedux.replace(redirect || '/'));
+        // 默认登录成功跳转地址
+        yield put(routerRedux.replace(redirect || '/welcome'));
       }
     },
 

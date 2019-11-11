@@ -179,6 +179,10 @@ export default {
   manifest: {
     basePath: '/',
   },
+  // static resource prefix
+  publicPath: "/dist/",
+  // hash route
+  history: "hash",
   chainWebpack: webpackPlugin,
   /*
   proxy: {

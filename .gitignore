@@ -2,6 +2,7 @@
 bin/**
 pkg/**
 src/github.com/**
+src/gopkg.in/**
 
 # Binaries for programs and plugins
 *.exe
@@ -55,3 +56,6 @@ web/.firebase
 web/.eslintcache
 
 web/build
+web/dist
+web/src/pages/.umi-production
+web/src/pages/.umi
