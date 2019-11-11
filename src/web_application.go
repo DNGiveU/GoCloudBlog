@@ -10,6 +10,9 @@ import (
 func main() {
 	application := gin.Default()
 
+	// gin.SetMode("release")
+	gin.SetMode("debug")
+
 	/*
 	 * static resources
 	 */
