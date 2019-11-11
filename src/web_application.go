@@ -4,7 +4,6 @@ import (
 	"controller"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	_ "net/http"
 )
 
 func main() {

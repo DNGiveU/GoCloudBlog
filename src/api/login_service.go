@@ -4,6 +4,7 @@ import (
 	"constants"
 	"encoding/json"
 	"github.com/gin-gonic/gin"
+	uuid "github.com/satori/go.uuid"
 	"io/ioutil"
 	"model/login"
 	"net/http"
@@ -52,6 +53,7 @@ func LoginAccount(c *gin.Context) {
 }
 
 func setCookie(c *gin.Context) {
+	uid := uuid.Must(uuid.NewV4())
 	/*
 	 * https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Set-Cookie
 	 * maxAge 在 cookie 失效之前需要经过的秒数。秒数为 0 或 -1 将会使 cookie 直接过期
@@ -60,5 +62,5 @@ func setCookie(c *gin.Context) {
 	 * secure 一个带有安全属性的 cookie 只有在请求使用SSL和HTTPS协议的时候才会被发送到服务器
 	 * httpOnly 设置了 HttpOnly 属性的 cookie 不能使用 JavaScript 经由  Document.cookie 属性、XMLHttpRequest 和  Request APIs 进行访问，以防范跨站脚本攻击（XSS）
 	 */
-	c.SetCookie(constants.COOKIE_TOKEN, "123456", 60 * 60 * 24 * 30, "/", c.Request.Host, false, false)
+	c.SetCookie(constants.COOKIE_TOKEN, uid.String(), 60 * 60 * 24 * 30, "/", c.Request.Host, false, false)
 }
