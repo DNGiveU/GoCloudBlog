@@ -9,8 +9,11 @@ import (
 func main() {
 	application := gin.Default()
 
-	// gin.SetMode("release")
-	gin.SetMode("debug")
+	/*
+	 * gin global config
+	 */
+	// gin.SetMode(gin.ReleaseMode)
+	gin.SetMode(gin.DebugMode)
 
 	/*
 	 * static resources
@@ -20,13 +23,18 @@ func main() {
 	application.LoadHTMLGlob("web/dist/*.html")
 
 	/*
+	 * application global config
+	 */
+	application.NoRoute(func(c *gin.Context) {
+		// 404 - 也返回index.html, 前端处理未知路由
+		c.HTML(http.StatusOK, "index.html", nil)
+	})
+
+	/*
 	 * 路由注册
 	 */
 	// 根路由永久重定向至/index.html
 	application.GET("/", func(c *gin.Context) {
-		c.Redirect(http.StatusMovedPermanently, "/index.html")
-	})
-	application.GET("/index.html", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
 

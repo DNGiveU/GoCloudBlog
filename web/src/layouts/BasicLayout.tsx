@@ -116,7 +116,7 @@ const footerRender: BasicLayoutProps['footerRender'] = () => {
 };
 
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
-  const { dispatch, children, settings, location = { pathname: '/' } } = props;
+  const { dispatch, children, settings, location = { pathname: '/admin/welcome' } } = props;
   /**
    * constructor
    */
@@ -143,7 +143,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     }
   };
   // get children authority
-  const authorized = getAuthorityFromRouter(props.route.routes, location.pathname || '/') || {
+  const authorized = getAuthorityFromRouter(props.route.routes, location.pathname || '/admin/welcome') || {
     authority: undefined,
   };
 

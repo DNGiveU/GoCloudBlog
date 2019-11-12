@@ -209,7 +209,7 @@ export default {
   // static resource prefix
   publicPath: '/dist/',
   // hash route
-  history: 'hash',
+  history: 'browser',
   chainWebpack: webpackPlugin,
   /*
   proxy: {
