@@ -152,15 +152,8 @@ export default {
     {
       path: '/',
       // 首页布局组件
-      component: '../layouts/UserLayout',
-      routes: [
-        {
-          name: 'index',
-          path: '/',
-          // 首页组件
-          component: './user/login',
-        },
-      ]
+      name: 'index',
+      component: './home',
     },
     {
       component: './404'

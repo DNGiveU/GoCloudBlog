@@ -33,7 +33,6 @@
     }
   },
   "lint-staged": {
-    "**/*.less": "stylelint --syntax less",
     "**/*.{js,jsx}": "npm run lint-staged:js",
     "**/*.{js,ts,tsx}": "npm run lint-staged:js"
   },
@@ -46,11 +45,12 @@
     "@ant-design/colors": "^3.1.0",
     "@ant-design/pro-layout": "^4.5.16",
     "@antv/data-set": "^0.10.2",
-    "antd": "^3.23.6",
+    "antd": "^3.25.1",
     "bizcharts": "^3.5.3-beta.0",
     "bizcharts-plugin-slider": "^2.1.1-beta.1",
     "classnames": "^2.2.6",
     "dva": "^2.4.1",
+    "enquire-js": "^0.2.1",
     "gg-editor": "^2.0.2",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
@@ -58,6 +58,10 @@
     "omit.js": "^1.0.2",
     "path-to-regexp": "^3.1.0",
     "qs": "^6.9.0",
+    "rc-banner-anim": "^2.4.2",
+    "rc-queue-anim": "^1.8.2",
+    "rc-scroll-anim": "^2.6.2",
+    "rc-tween-one": "^2.6.5",
     "react": "^16.8.6",
     "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.8.6",
