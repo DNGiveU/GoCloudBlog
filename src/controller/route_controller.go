@@ -30,6 +30,7 @@ func RegistryRoute(engine *gin.Engine) {
 
 /*
  * 认证
+ * TODO implement
  */
 func BasicAuth() gin.HandlerFunc {
 	return func(c *gin.Context) {
