@@ -5,7 +5,7 @@ import { getChildrenToRender } from './utils';
 
 const { Item, SubMenu } = Menu;
 
-class Header3 extends React.Component {
+class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +14,6 @@ class Header3 extends React.Component {
   }
 
   phoneClick = () => {
-    // eslint-disable-next-line react/no-access-state-in-setstate
     const phoneOpen = !this.state.phoneOpen;
     this.setState({
       phoneOpen,
@@ -35,12 +34,12 @@ class Header3 extends React.Component {
             title={
               <div
                 {...a}
-                className={`header3-item-block ${a.className}`.trim()}
+                className={`header0-item-block ${a.className}`.trim()}
               >
                 {a.children.map(getChildrenToRender)}
               </div>
             }
-            popupClassName="header3-item-child"
+            popupClassName="header0-item-child"
           >
             {subItem.map(($item, ii) => {
               const { children: childItem } = $item;
@@ -64,7 +63,7 @@ class Header3 extends React.Component {
       }
       return (
         <Item key={item.name} {...itemProps}>
-          <a {...a} className={`header3-item-block ${a.className}`.trim()}>
+          <a {...a} className={`header0-item-block ${a.className}`.trim()}>
             {a.children.map(getChildrenToRender)}
           </a>
         </Item>
@@ -105,7 +104,6 @@ class Header3 extends React.Component {
             animation={
               isMobile
                 ? {
-                    x: 0,
                     height: 0,
                     duration: 300,
                     onComplete: (e) => {
@@ -123,7 +121,7 @@ class Header3 extends React.Component {
             <Menu
               mode={isMobile ? 'inline' : 'horizontal'}
               defaultSelectedKeys={['sub0']}
-              theme="light"
+              theme="dark"
             >
               {navChildren}
             </Menu>
@@ -134,4 +132,4 @@ class Header3 extends React.Component {
   }
 }
 
-export default Header3;
+export default Header;
