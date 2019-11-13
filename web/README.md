@@ -119,3 +119,7 @@ export default {
 - chainWebpack: webpackPlugin,
 };
 ```
+
+## 三方库
+
+[简图 mermaidjs](https://github.com/DNGiveU/mermaidjs.github.io)
