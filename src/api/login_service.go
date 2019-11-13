@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"model/login"
 	"net/http"
+	"strings"
 )
 
 /**
@@ -62,5 +63,5 @@ func setCookie(c *gin.Context) {
 	 * secure 一个带有安全属性的 cookie 只有在请求使用SSL和HTTPS协议的时候才会被发送到服务器
 	 * httpOnly 设置了 HttpOnly 属性的 cookie 不能使用 JavaScript 经由  Document.cookie 属性、XMLHttpRequest 和  Request APIs 进行访问，以防范跨站脚本攻击（XSS）
 	 */
-	c.SetCookie(constants.COOKIE_TOKEN, uid.String(), 60 * 60 * 24 * 30, "/", c.Request.Host, false, false)
+	c.SetCookie(constants.COOKIE_TOKEN, strings.ReplaceAll(uid.String(), "-", ""), 60 * 60 * 24 * 30, "/", c.Request.Host, false, false)
 }
