@@ -17,3 +17,7 @@ $ go get github.com/go-xorm/xorm
 $ cd web
 $ yarn isntall
 ```
+
+### Build
+
+[https://hakaselogs.me/2018-04-20/building-a-web-app-with-go-gin-and-react/](https://hakaselogs.me/2018-04-20/building-a-web-app-with-go-gin-and-react/)
