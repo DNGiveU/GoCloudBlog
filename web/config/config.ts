@@ -78,7 +78,7 @@ export default {
   devtool: isAntDesignProPreview ? 'source-map' : false,
   /*
    * umi routes: https://umijs.org/zh/guide/router.html
-   * 路由配置模式: 范围越小的路由在前, 范围越大的路由在后, 如 path: /.
+   * 路由配置模式: 范围越小的路由在前, 范围越大的路由在后, 如 path: /. 除非使用精确匹配模式: extra: true
    *  最后一个路由不配置path, 则为改组的默认路由
    */
   routes: [
@@ -211,13 +211,13 @@ export default {
   // hash route
   history: 'browser',
   chainWebpack: webpackPlugin,
-  /*
+  // 服务器联合调式
   proxy: {
     '/server/api/': {
-      target: 'https://preview.pro.ant.design/',
+      // target: 'https://preview.pro.ant.design/',
+      target: 'https://localhost/',
       changeOrigin: true,
       pathRewrite: { '^/server': '' },
     },
   },
-  */
 } as IConfig;

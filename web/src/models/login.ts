@@ -40,8 +40,8 @@ const Model: LoginModelType = {
         type: 'changeLoginStatus',
         payload: response,
       });
-      // Login successfully
       if (response.status === 'ok') {
+        // Login successfully
         const urlParams = new URL(window.location.href);
         const params = getPageQuery();
         let { redirect } = params as { redirect: string };
@@ -58,6 +58,11 @@ const Model: LoginModelType = {
             return;
           }
         }
+        // 暂存一个临时登录, 用于验证SecurityLayout.render的登录认证校验
+        yield put({
+          type: 'user/saveCurrentUser',
+          payload: { userid: '0000' },
+        });
         // 默认登录成功跳转地址
         yield put(routerRedux.replace(redirect || '/admin/welcome'));
       }
@@ -68,6 +73,11 @@ const Model: LoginModelType = {
     },
     *logout(_, { put }) {
       const { redirect } = getPageQuery();
+      // clear current user
+      yield put({
+        type: 'user/saveCurrentUser',
+        payload: {},
+      })
       // redirect
       if (window.location.pathname !== '/user/login' && !redirect) {
         yield put(
